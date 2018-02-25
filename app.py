@@ -10,12 +10,12 @@ CORS(app)
 dataset = datasets.load_iris()
 
 
-@app.route('/')
+@app.route('/',  methods=['GET', 'POST'])
 def hello_world():
     return 'Hello World!'
 
 
-@app.route('/test')
+@app.route('/test',  methods=['GET', 'POST'])
 def hello():
     return str(request.args)
 
