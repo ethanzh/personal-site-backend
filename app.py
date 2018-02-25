@@ -4,13 +4,13 @@ from sklearn import datasets, metrics
 from sklearn.tree import DecisionTreeClassifier
 
 app = Flask(__name__)
+CORS(app)
 
 # Load Dataset from scikit-learn.
 dataset = datasets.load_iris()
 
 
 @app.route('/')
-@cross_origin()
 def hello_world():
     return 'Hello World!'
 
