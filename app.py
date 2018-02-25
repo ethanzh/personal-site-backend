@@ -1,10 +1,11 @@
 from flask import Flask, jsonify
-from sklearn import datasets, svm
+from sklearn import datasets, metrics
+from sklearn.tree import DecisionTreeClassifier
 
 app = Flask(__name__)
 
 # Load Dataset from scikit-learn.
-digits = datasets.load_digits()
+dataset = datasets.load_iris()
 
 
 @app.route('/')
@@ -14,12 +15,15 @@ def hello_world():
 
 @app.route('/test')
 def hello():
-    clf = svm.SVC(gamma=0.001, C=100.)
-    clf.fit(digits.data[:-1], digits.target[:-1])
-    prediction = clf.predict(digits.data[-1:])
+    model = DecisionTreeClassifier()
+    model.fit(dataset.data, dataset.target)
+    # make predictions
+    expected = dataset.target
+    predicted = model.predict(dataset.data)
+    # summarize the fit of the model
 
-    return jsonify({'prediction': repr(prediction)})
+    return jsonify(predicted.tolist())
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='127.0.0.1', port=80)
