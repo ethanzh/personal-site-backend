@@ -1,7 +1,6 @@
-from flask import Flask, jsonify, request
-from flask_cors import CORS, cross_origin
-from sklearn import datasets, metrics
-from sklearn.tree import DecisionTreeClassifier
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+from sklearn import datasets
 
 app = Flask(__name__)
 CORS(app)
@@ -17,9 +16,11 @@ def hello_world():
 
 @app.route('/test',  methods=['GET', 'POST'])
 def hello():
-    return str(request.args)
 
-
+    if request.method == 'POST':
+        return jsonify(request.get_json(force=True))
+    elif request.method == 'GET':
+        return "this is a get"
 
 
 if __name__ == '__main__':
