@@ -18,8 +18,8 @@ def hello_world():
 def hello():
 
     if request.method == 'POST':
-        json_data = jsonify(request.get_json(force=True))
-        return str(json_data["key"])
+        data = request.get_json()
+        return data
     elif request.method == 'GET':
         return "this is a get"
 
