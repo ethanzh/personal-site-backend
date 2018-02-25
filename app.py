@@ -11,14 +11,6 @@ def hello_world():
     return 'Hello World!'
 
 
-@app.route('/test/')
-def test():
-
-    clf = svm.SVC()
-    iris = datasets.load_iris()
-    X, y = iris.data, iris.target
-    clf.fit(X, y)
-    return clf.predict(4)
 
 
 if __name__ == '__main__':
