@@ -17,7 +17,7 @@ def hello_world():
 
 @app.route('/test')
 def hello():
-    return request.args
+    return str(request.args)
 
 
 
