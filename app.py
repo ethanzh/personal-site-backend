@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from sklearn import datasets, metrics
 from sklearn.tree import DecisionTreeClassifier
 
@@ -10,6 +10,7 @@ dataset = datasets.load_iris()
 
 
 @app.route('/')
+@cross_origin()
 def hello_world():
     return 'Hello World!'
 
