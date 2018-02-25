@@ -1,5 +1,8 @@
 from flask import Flask
 
+from sklearn import svm
+from sklearn import datasets
+
 app = Flask(__name__)
 
 
@@ -10,7 +13,12 @@ def hello_world():
 
 @app.route('/test/')
 def test():
-    return 'test'
+
+    clf = svm.SVC()
+    iris = datasets.load_iris()
+    X, y = iris.data, iris.target
+    clf.fit(X, y)
+    return clf.predict(4)
 
 
 if __name__ == '__main__':
