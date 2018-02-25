@@ -19,7 +19,9 @@ def hello():
 
     if request.method == 'POST':
         data = request.get_json()
-        return data
+        print(data)
+        return 'OK'
+
     elif request.method == 'GET':
         return "this is a get"
 
