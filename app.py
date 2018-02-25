@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from flask.ext.cors import CORS
+from flask_cors import CORS
 from sklearn import datasets, metrics
 from sklearn.tree import DecisionTreeClassifier
 
