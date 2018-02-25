@@ -1,8 +1,5 @@
 from flask import Flask
 
-from sklearn import svm
-from sklearn import datasets
-
 app = Flask(__name__)
 
 
