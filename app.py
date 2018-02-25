@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 from sklearn import datasets, metrics
 from sklearn.tree import DecisionTreeClassifier
@@ -17,14 +17,9 @@ def hello_world():
 
 @app.route('/test')
 def hello():
-    model = DecisionTreeClassifier()
-    model.fit(dataset.data, dataset.target)
-    # make predictions
-    expected = dataset.target
-    predicted = model.predict(dataset.data)
-    # summarize the fit of the model
+    return request.args
 
-    return jsonify(predicted.tolist())
+
 
 
 if __name__ == '__main__':
