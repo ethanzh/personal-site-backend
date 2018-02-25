@@ -4,7 +4,6 @@ from sklearn import datasets, metrics
 from sklearn.tree import DecisionTreeClassifier
 
 app = Flask(__name__)
-CORS(app)
 
 # Load Dataset from scikit-learn.
 dataset = datasets.load_iris()
