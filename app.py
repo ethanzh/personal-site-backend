@@ -26,5 +26,11 @@ def hello():
         return "this is a get"
 
 
+@app.route('/email', methods=['GET', 'POST'])
+def email():
+
+    return 'OK'
+
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=80)
